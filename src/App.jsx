@@ -98,14 +98,15 @@ function App() {
 
       setChats(finalChats);
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error calling API:", error.response || error.message || error);
+      const detail = error.response?.data?.error || error.message || "Could not reach server.";
       const errorChats = updatedChats.map(chat =>
         chat.id === activeChatId
           ? {
               ...chat,
               messages: [
                 ...chat.messages,
-                { role: "assistant", content: "❌ Error: Could not get response. Please try again." }
+                { role: "assistant", content: `❌ Error: ${detail} Please try again.` }
               ]
             }
           : chat

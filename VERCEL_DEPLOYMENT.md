@@ -28,8 +28,10 @@ In Vercel dashboard:
 1. Go to Settings → Environment Variables
 2. Add the following variable:
    - Name: `VITE_API_URL`
-   - Value: `https://your-backend-name.onrender.com/`
+   - Value: `https://your-backend-name.onrender.com` *(no trailing slash)*
    - Select: Production, Preview, Development
+
+> Make sure this matches the URL shown in Render. A wrong or missing value will cause network errors.
 
 ### 4. Deploy
 - Click "Deploy"
