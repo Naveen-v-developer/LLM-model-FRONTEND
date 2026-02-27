@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply scroll-smooth;
+}
+
+/* theme-aware body colors */
+html.light body {
+  @apply bg-white text-slate-900;
+  color-scheme: light;
+  /* default primary colors */
+  --primary: rgb(59, 130, 246); /* blue-500 */
+  --primary-light: rgb(96, 165, 250); /* blue-400 */
+}
+
+html.dark body {
+  @apply bg-slate-900 text-white;
+  color-scheme: dark;
+}
+
+html.blue body {
+  @apply bg-slate-900 text-white;
+  --primary: rgb(3, 105, 161);
+  --primary-light: rgb(15, 118, 168);
+}
+
+html.purple body {
+  @apply bg-slate-900 text-white;
+  --primary: rgb(88, 28, 135);
+  --primary-light: rgb(109, 40, 217);
+}
+
+html.green body {
+  @apply bg-slate-900 text-white;
+  --primary: rgb(4, 120, 87);
+  --primary-light: rgb(16, 185, 129);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(100, 116, 139);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(148, 163, 184);
+}
+
+/* Selection Styling */
+::selection {
+  @apply bg-blue-500/30 text-white;
+}
+
+/* Input Styling */
+input:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* Button Reset */
+button {
+  @apply transition-all duration-200;
+}
+
+/* Markdown Typography */
+.prose {
+  @apply text-slate-100;
+}
+
+/* prose link accent color */
+.prose a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
